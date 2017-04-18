@@ -1,0 +1,13 @@
+---
+title: "Simple Features Exploration"
+output: html_notebook
+---
+
+## Libraries
+
+```{r}
+install.packages(c(
+  "RPostgreSQL",
+  "sf"
+))
+```
