@@ -10,18 +10,17 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r}
 # libraries
 library(sf)
-library(dplyr)
+library(tidyverse)
 
 # read shapefile (uses unpacked zipfile)
 row_closures <- st_read("~/Downloads/HackOregon/ROWClosures/ROWClosures_02012017.shp")
+glimpse(row_closures, width = 0)
 
 # ClosureSta is a factor - how many levels??
 levels(row_closures$ClosureSta)
 
 # Just get the active ones
-active_row_closures <- row_closures %>% dplyr::filter(ClosureSta == "ACTIVE")
-
-# How many active ones?
-print(nrow(active_row_closures))
+active_row_closures <- row_closures %>% filter(ClosureSta == "ACTIVE")
+glimpse(active_row_closures, width = 0)
 ```
 
