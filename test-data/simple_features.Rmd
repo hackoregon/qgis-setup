@@ -1,0 +1,27 @@
+---
+title: "ROW Closure Exploration"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+# libraries
+library(sf)
+library(dplyr)
+
+# read shapefile (uses unpacked zipfile)
+row_closures <- st_read("~/Downloads/HackOregon/ROWClosures/ROWClosures_02012017.shp")
+
+# ClosureSta is a factor - how many levels??
+levels(row_closures$ClosureSta)
+
+# Just get the active ones
+active_row_closures <- row_closures %>% dplyr::filter(ClosureSta == "ACTIVE")
+
+# How many active ones?
+print(nrow(active_row_closures))
+```
+
